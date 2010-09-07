@@ -1,0 +1,7 @@
+<div class="meta">
+<p ><%=comment.subject%></p>
+<p ><%=comment.message%></p>
+<p class="credit">Posted by bla <%=comment.created_at%></p>
+</div>
+<br>
+<br>

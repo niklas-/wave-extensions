@@ -1,0 +1,4 @@
+<%= render :partial => 'comments/newroot'%>
+<div id="commentlist_<%=@extension.id.to_s%>">
+<%= render :partial => @comments %>
+</div>

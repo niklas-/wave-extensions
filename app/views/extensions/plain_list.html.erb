@@ -1,0 +1,30 @@
+<% set_meta_title("a-z")%>
+<div class="post">
+<div class="title"><h2>wave extension a-z</h2> </div>
+<div class="entry">
+<% third =  @extensions.size / 3 %>
+
+<div style="float:left; width:200px">
+	<ul style="list-style-type:none">
+		<% for i in 0..third -1 %>
+		<li><%= link_to @extensions[i].name, extension_path(@extensions[i]) %></li>
+		<% end %>
+	</ul>
+</div>
+
+<div style="float:right; width:200px" >
+	<ul style="list-style-type:none">
+		<% for i in third * 2..@extensions.size - 1%>
+		<li><%= link_to @extensions[i].name, extension_path(@extensions[i]) %></li>
+		<% end %>
+	</ul>
+</div>
+<div>
+	<ul style="list-style-type:none">
+		<% for i in third..third * 2 -1 %>
+		<li><%= link_to @extensions[i].name, extension_path(@extensions[i]) %></li>
+		<% end %>
+	</ul>
+</div>
+</div>
+</div>

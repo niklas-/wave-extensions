@@ -1,0 +1,6 @@
+<% result = 0 %></p>
+<% for rating in @ratings %>
+  <% result = result + rating.value%></p>
+<% end %>
+<p >rating: <%=result%></p>
+

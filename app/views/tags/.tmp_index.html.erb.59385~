@@ -1,0 +1,10 @@
+<div class="post">
+<div class="title"><h2>wave extension tag</h2> </div>
+<div class="entry">
+<ul id="taglist">
+<% for tag in @tags %>
+<li><%= link_to tag.name + "(" + tag.taggings_count.to_s + ")", show_by_tag_path(tag) %></li>
+<% end %>
+</ul>
+</div>
+</div>

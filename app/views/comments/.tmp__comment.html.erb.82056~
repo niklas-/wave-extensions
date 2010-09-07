@@ -1,0 +1,7 @@
+<div class="meta">
+<p ><%=comment.subject%></p>
+<p ><%=comment.message%></p>
+<p class="credit">Posted by <%=comment.nickname%> <%=put_time_since_posted(comment.created_at.to_s)%></p>
+</div>
+<br>
+<br>

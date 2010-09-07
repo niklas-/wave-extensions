@@ -1,0 +1,38 @@
+<% for extension in @extensions %>
+<div class="post">
+<div class="title"><h2><%= extension.name %></h2> 
+<%=link_to 'rate this!', { :controller => 'extensions', :action => 'show', :id => extension.id} %>
+</div>
+<div class="entry">
+<p><%= extension.description %></p>
+<p><%= link_to extension.url %></p>
+</p>
+</div>
+<div class="meta">
+<p class="credit">Posted by <a href="mailto:<%=extension.user.email%>"><%=extension.user.name%></a> <%=extension.created_at%></p>
+
+<%if @show=="true" && extension.id == @extension.id %>
+  <p class="links"><%=link_to 'hide comments', { :controller => 'extensions', :action => 'index', :id => extension.id, :show => "false"} , :class => "comments"%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<%else%>
+  <p class="links"><%=link_to 'show comments', { :controller => 'extensions', :action => 'index', :id => extension.id, :show => "true"} , :class => "comments"%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<%end%>
+<%=link_to 'read more', extension_path(extension) %>
+<p class="links" id='soso'><%= link_to_remote 'toggle comments ajaxx', :update => 'murgs_' + extension.id.to_s, :url => toggle_comments_path(extension), :before => "Element.toggle('murgs_" + extension.id.to_s + "','blind')", :class => "comments"%></p>
+</div>
+
+<% if @show=="true" && extension.id == @extension.id %>
+  <%= render :partial => 'comments/new'%>
+  <div id="commentlist_">
+  <%= render :partial => @comments %>
+  </div>
+<%end%>
+
+<div style="display:none" id="murgs_<%= extension.id %>">
+  
+</div>
+
+</div>
+<br>
+
+<% end %>
+

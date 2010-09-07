@@ -1,0 +1,73 @@
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Name</td>
+	<td>Created at</td>
+	<td>Url</td>
+	<td>Developer Url</td>
+	<td>Robot Mail</td>
+  	<td>Description</td>
+	<td>No Downloadst</td>
+	<td>User ID</td>
+  </tr>
+<tr>
+  	<td><%=h @extension.id %></td>
+  	<td><%=h @extension.name %></td>
+	<td><%=h @extension.created_at %></td>
+	<td><%=h @extension.url %></td>
+	<td><%=h @extension.developerurl %></td>
+	<td><%=h @extension.robotmail %></td>
+	<td><%=h @extension.description %></td>
+	<td><%=h @extension.numdownloads %></td>
+    <td><%= link_to @extension.user_id, admin_user_path(@extension.user_id) %> </td>
+  </tr>
+</table>
+
+<h1>Listing comments</h1>
+
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Date</td>
+	<td>Message</td>
+	<td>Created at</td>
+  </tr>
+
+<% @extension.comments.each do |comment| %>
+  <tr>
+  	<td><%= h comment.id %></td>
+  	<td><%= h comment.date %></td>
+	<td><%= h comment.message %></td>
+	<td><%= h comment.created_at %></td>
+    <td><%= link_to 'Show', [:admin, comment] %></td>
+    <td><%= link_to 'Edit', edit_admin_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', [:admin, comment], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<h1>Listing tags</h1>
+
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Name</td>
+	<td>Taggings Count</td>
+  </tr>
+
+<% @taggings.each do |taggings| %>
+  <% tag = taggings.tag %>
+  <tr>
+  	<td><%= h tag.id %></td>
+  	<td><%= h tag.name %></td>
+	<td><%= h tag.taggings_count %></td>
+    <td><%= link_to 'Show', [:admin, tag] %></td>
+    <td><%= link_to 'Edit', edit_admin_tag_path(tag) %></td>
+    <td><%= link_to 'Destroy', [:admin, tag], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Destroy', [:admin, @extension], :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Edit', edit_admin_extension_path(@extension) %> |
+<%= link_to 'Back', admin_extensions_path %>

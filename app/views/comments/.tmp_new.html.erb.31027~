@@ -1,0 +1,31 @@
+<div class="post">
+<div class="title"><h2>new extension</h2></div>
+<div class="entry">
+<% form_tag({:action=>"create",:controller=>"extensions"}) do -%>
+	
+	name: 
+	<br>
+	<%=text_field :post, :name %>
+	<br/>
+	description: 
+	<br/>
+	<%=text_area :post, :description, :size => 48 %>
+	<br/>
+	url:
+	<br/>
+	<%=text_field :post, :url%>
+	<br/>
+	user
+	<br/>
+	<%=text_field :post, :user%>
+	<br/>
+	email
+	<br/>
+	<%=text_field :post, :email%>
+	<br/>
+	<%= submit_tag "Create" %>
+	
+<% end -%>
+</div>
+</div>
+				

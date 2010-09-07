@@ -1,0 +1,5 @@
+<% set_meta_title("by category")%>
+<%= put_category_link(@category) %>
+<br>
+<br>
+<%= render :partial => 'list'%>

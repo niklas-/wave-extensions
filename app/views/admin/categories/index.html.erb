@@ -1,0 +1,26 @@
+<h1>Listing categories</h1>
+
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Name</td>
+	<td>Parent ID</td>
+	<td>Created at</td>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+  	<td><%= h category.id %></td>
+  	<td><%= h category.name %></td>
+	<td><%= h category.parent_id %></td>
+	<td><%= h category.created_at %></td>
+    <td><%= link_to 'Show', [:admin, category] %></td>
+    <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
+    <td><%= link_to 'Destroy', [:admin, category], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New category', new_admin_category_path %>

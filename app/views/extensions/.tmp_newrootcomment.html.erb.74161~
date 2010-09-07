@@ -1,0 +1,12 @@
+<div class="post">
+<div class="title"><h2><%=@extension.name%></h2></div>
+<div class="entry">
+<p><%=@extension.description%></p>
+<p><%=link_to @extension.url%></p>
+</div>
+<div class="meta">
+<p class="credit">Posted by <a href="mailto:<%=@extension.user.email%>"><%=@extension.user.name%></a> <%=@extension.created_at%></p>
+</div>
+<%=render :partial => 'comments/newroot'%>
+<%=render :partial => 'comments/index'%>
+</div>

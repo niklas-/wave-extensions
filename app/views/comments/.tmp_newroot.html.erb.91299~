@@ -1,0 +1,21 @@
+<div class="post">
+<div class="title"><h2>new comment</h2></div>
+<div class="entry">
+<% form_tag({:action=>"create",:controller=>"comments"}) do -%>
+	
+    subject: 
+	<br>
+	<%=text_field :post, :subject %>
+	<br/>
+	message: 
+	<br/>
+	<%=text_area :post, :message, :size => 48 %>
+	<br/>
+	 <%hidden_field: ':token', @comment.extension %>
+
+	<%= submit_tag "Create" %>
+	
+<% end -%>
+</div>
+</div>
+				

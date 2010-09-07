@@ -1,0 +1,23 @@
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Name</td>
+	<td>Created at</td>
+	<td>Url</td>
+  	<td>Description</td>
+	<td>No Downloadst</td>
+	<td>User ID</td>
+  </tr>
+<tr>
+  	<td><%=h @extension.id %></td>
+  	<td><%=h @extension.name %></td>
+	<td><%=h @extension.created_at %></td>
+	<td><%=h @extension.url %></td>
+	<td><%=h @extension.description %></td>
+	<td><%=h @extension.numdownloads %></td>
+    <td><%= link_to @extension.user_id, admin_user_path(@extension.user_id) %> </td>
+  </tr>
+</table>
+<%= link_to 'Destroy', [:admin, @extension], :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Edit', edit_admin_extension_path(@extension) %> |
+<%= link_to 'Back', admin_extensions_path %>

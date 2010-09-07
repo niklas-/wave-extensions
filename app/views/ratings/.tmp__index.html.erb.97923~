@@ -1,0 +1,9 @@
+<% sum = 0 %></p>
+<% for rating in @ratings %>
+  <% sum = sum + rating.value.to_i%></p>
+<% end %>
+<%size = @ratings.size==0 ? 1 : @ratings.size%>
+<% @result = sum.to_f / size%>
+<%= render :partial => 'ratings/rating'%>
+ &nbsp; votes:  <%= @ratings.size %>, avarage: <%= format("%1.1f", @result) %>
+

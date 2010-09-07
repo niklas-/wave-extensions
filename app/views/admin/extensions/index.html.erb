@@ -1,0 +1,24 @@
+<h1>Listing extensions</h1>
+
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Name</td>
+	<td>Created at</td>
+  </tr>
+
+<% @extensions.each do |extension| %>
+  <tr>
+  	<td><%=h extension.id %></td>
+  	<td><%=h extension.name %></td>
+	<td><%=h extension.created_at %></td>
+    <td><%= link_to 'Show',  [:admin, extension] %></td>
+    <td><%= link_to 'Edit', edit_admin_extension_path(extension) %></td>
+    <td><%= link_to 'Destroy', [:admin, extension], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New extension', new_admin_extension_path %>

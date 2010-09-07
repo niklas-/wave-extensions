@@ -1,0 +1,16 @@
+<% for comment in @comments %>
+<div class="post">
+<div class="title"><h2><%=comment.subject%></h2></div>
+<div class="entry">
+<p><%=extension.message%></p>
+</div>
+<div class="meta">
+<p class="links"><%=link_to 'new', { :controller => 'comments', :action => 'new', :id => comment.id }%></p>
+</div>
+
+</div>
+
+
+
+<% end %>
+

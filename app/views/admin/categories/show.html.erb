@@ -1,0 +1,19 @@
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Name</td>
+	<td>Parent ID</td>
+	<td>Created at</td>
+	<td>Updated at</td>
+  </tr>
+  <tr>
+  	<td><%= h @category.id %></td>
+  	<td><%= h @category.name %></td>
+	<td><%= h @category.parent_id %></td>
+	<td><%= h @category.created_at %></td>
+	<td><%= h @category.updated_at %></td>
+  </tr>
+</table>
+<%= link_to 'Edit', edit_admin_category_path(@category) %> |
+<%= link_to 'Destroy', [:admin, @category], :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', admin_categories_path %>

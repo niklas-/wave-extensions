@@ -1,0 +1,15 @@
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Name</td>
+	<td>Taggings Count</td>
+  </tr>
+
+  <tr>
+  	<td><%= h @tag.id %></td>
+  	<td><%= h @tag.name %></td>
+	<td><%= h @tag.taggings_count %></td>
+  </tr>
+</table>
+<%= link_to 'Edit', edit_admin_tag_path(@tag) %> |
+<%= link_to 'Back', admin_tags_path %>

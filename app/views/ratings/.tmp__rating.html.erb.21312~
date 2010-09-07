@@ -1,0 +1,27 @@
+<div id="ratingbox_<%=@extension.id%>"> <!-- muss _ + zahl sein um die votingbox im js zuordnen zu können -->
+		<%if @result >= 0.5 %>
+		<img src="/images/lit1.png" alt="1" name="gold" onMouseOver="over(this);" onMouseOut="MePreWhite(this);" onClick="click(this);"/>
+		<%else%>
+		<img src="/images/gre1.png" alt="1" name="grey" onMouseOver="over(this);" onMouseOut="allWhite(this);" onClick="click(this);"/>
+		<%end%>
+		<%if @result >= 1.5 %>
+        <img src="/images/lit1.png" alt="2" ame="gold" onMouseOver="over(this);" onMouseOut="allWhite(this);" onClick="click(this);"/>
+		<%else%>
+		<img src="/images/gre1.png" alt="2" name="grey" onMouseOver="over(this);" onMouseOut="allWhite(this);" onClick="click(this);"/>
+		<%end%>
+		<%if @result >= 2.5 %>
+		<img src="/images/lit1.png" alt="3" ame="gold" onMouseOver="over(this);" onMouseOut="allWhite(this);" onClick="click(this);"/>
+		<%else%>
+		<img src="/images/gre1.png" alt="3" name="grey" onMouseOver="over(this);" onMouseOut="allWhite(this);" onClick="click(this);"/>
+		<%end%>
+		<%if @result >= 3.5 %>
+		<img src="/images/lit1.png" alt="4" ame="gold" onMouseOver="over(this);" onMouseOut="allWhite(this);" onClick="click(this);"/>
+		<%else%>
+		<img src="/images/gre1.png" alt="4" name="grey" onMouseOver="over(this);" onMouseOut="allWhite(this);" onClick="click(this);"/>
+		<%end%>
+		<%if @result >= 4.5 %>
+		<img src="/images/lit1.png" alt="5" ame="gold" onMouseOver="over(this);" onMouseOut="allWhite(this);" onClick="click(this);"/>
+		<%else%>
+		<img src="/images/gre1.png" alt="5" name="grey" onMouseOver="over(this);" onMouseOut="allWhite(this);" onClick="click(this);"/>
+		<%end%>
+</div>

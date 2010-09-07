@@ -1,0 +1,53 @@
+<h1>New comment</h1>
+<% form_for([:admin, @comment]) do |f| %>
+<%= f.error_messages %>
+<p>
+    <b>ID</b>
+    <br/>
+    <%= f.text_field :id %>
+</p>
+<p>
+    <b>Date</b>
+    <br/>
+    <%= f.text_field :date %>
+</p>
+<p>
+    <b>Subject</b>
+    <br/>
+    <%= f.text_field :subject %>
+</p>
+<p>
+    <b>Message</b>
+    <br/>
+    <%= f.text_field :message %>
+</p>
+<p>
+    <b>User ID</b>
+    <br/>
+    <%= f.text_field :user_id %>
+</p>
+<p>
+    <b>Extension ID</b>
+    <br/>
+    <%= f.text_field :extension_id %>
+</p>
+<p>
+    <b>Parent ID</b>
+    <br/>
+    <%= f.text_field :parent_id %>
+</p>
+<p>
+    <b>Created at</b>
+    <br/>
+    <%= f.text_field :created_at %>
+</p>
+<p>
+    <b>Updated at</b>
+    <br/>
+    <%= f.text_field :updated_at %>
+</p>
+<p>
+    <%= f.submit 'Create' %>
+</p>
+<% end %>
+<%= link_to 'Back', admin_comments_path %>

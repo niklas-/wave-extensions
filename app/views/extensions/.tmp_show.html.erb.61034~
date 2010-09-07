@@ -1,0 +1,42 @@
+<div class="post">
+<div class="title"><h2><%=@extension.name%></h2></div>
+<div class="entry">
+<p>
+	<% unless session[:rated].include? @extension.id.to_s %>
+	<%= "rating:" %> 
+	  <%= render :partial => 'ratings/rating'%>
+	<% else %>
+	<%= flash[:notice]%>
+	<% end %>
+</p>	
+<%= render :partial => 'ratings/index'%>
+<p><%=@extension.description%></p>
+<p>the extension is published under the <%=@extension.license%></p>
+<p><%=@extension.description%></p>
+<p>download the extension <%=link_to "here", @extension.url%></p>
+<p>view the developer site <%=link_to "here", @extension.developerurl%></p>
+</div>
+<div class="meta">
+<p class="credit">Posted by <a href="mailto:<%=@extension.user.email%>"><%=@extension.user.name%></a> <%=@extension.created_at%></p>
+
+<%if @show=="true" && @extension.id %>
+  <p class="links"><%= link_to 'hide comments', { :controller => 'extensions', :action => 'show', :id => @extension.id, :show => "false"} , :class => "comments"%></p>
+<%else%>
+  <p class="links"><%= link_to 'show comments', { :controller => 'extensions', :action => 'show', :id => @extension.id, :show => "true"} , :class => "comments"%></p>
+<%end%>
+<p class="links" id='soso'><%= link_to_remote 'toggle comments ajax', :update => 'murgs', :url => toggle_comments_path(@extension), :before => "Element.toggle('murgs', 'blind')", :class => "comments"%></p>
+</div>
+
+<% if @show=="true" %>
+  <%= render :partial => 'comments/newroot'%>
+  <div id="commentlist">
+  <%= render :partial => @comments%>
+  </div>
+<%end%>
+
+<div style="display:none" id="murgs">
+  
+</div>
+
+</div>
+<br>

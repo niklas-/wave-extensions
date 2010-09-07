@@ -1,0 +1,55 @@
+<h1>Editing extension</h1>
+<% form_for([:admin, @extension]) do |f| %>
+<%= f.error_messages %>
+<p>
+    <b>ID</b>
+    <br/>
+    <%= f.text_field :id %>
+</p>
+<p>
+    <b>Name</b>
+    <br/>
+    <%= f.text_field :name %>
+</p>
+<p>
+    <b>Created at</b>
+    <br/>
+    <%= f.text_field :created_at %>
+</p>
+<p>
+    <b>Url</b>
+    <br/>
+    <%= f.text_field :url %>
+</p>
+<p>
+    <b>Developer Url</b>
+    <br/>
+    <%= f.text_field :developerurl %>
+</p>
+<p>
+    <b>Robot Mail</b>
+    <br/>
+    <%= f.text_field :robotmail %>
+</p>
+<p>
+    <b>Description</b>
+    <br/>
+    <%= f.text_field :description %>
+</p>
+<p>
+    <b>No. downloads</b>
+    <br/>
+    <%= f.text_field :numdownloads %>
+</p>
+<p>
+    <b>User id</b>
+    <br/>
+    <%= f.text_field :user_id %>
+</p>
+<p>
+    <%= f.submit 'Update' %>
+</p>
+<% end %>
+<%= link_to 'Show', [:admin, @extension] %> |
+<%= link_to 'Back', admin_extensions_path %>
+

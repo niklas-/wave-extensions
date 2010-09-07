@@ -1,0 +1,24 @@
+<h1>Listing tags</h1>
+
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Name</td>
+	<td>Taggings Count</td>
+  </tr>
+
+<% @tags.each do |tag| %>
+  <tr>
+  	<td><%= h tag.id %></td>
+  	<td><%= h tag.name %></td>
+	<td><%= h tag.taggings_count %></td>
+    <td><%= link_to 'Show', [:admin, tag] %></td>
+    <td><%= link_to 'Edit', edit_admin_tag_path(tag) %></td>
+    <td><%= link_to 'Destroy', [:admin, tag], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tag', new_admin_tag_path %>

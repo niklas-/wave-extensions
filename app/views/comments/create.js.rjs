@@ -1,0 +1,3 @@
+page.form.reset 'new-comment-form_'+ @extension.id.to_s
+page.insert_html :top, 'commentlist_' + @extension.id.to_s, :partial => 'comment'
+page.replace_html 'comment_link_' + @extension.id.to_s, 'toggle comments' + '(' + @extension.comments.size.to_s + ')'

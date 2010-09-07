@@ -1,0 +1,48 @@
+<div class="post">
+<div class="title">
+<div class="rating">
+    <%@ratings = @extension.ratings %>
+	<%= render :partial => 'ratings/index' %>
+</div>	
+<h2><%=@extension.name%></h2></div>
+<div class="entry">	
+<div class="picture">
+<%= image_tag @extension.preview.url(:medium) %>
+</div>
+<div class="tags">
+tags:
+<% @taggings.each do |taggings| %>
+  <% tag = taggings.tag %>
+  	<%= link_to tag.name, show_by_tag_path(tag.id) %> |
+<% end %>
+</div>
+
+<p><%=@extension.description%></p>
+
+<p>the extension is published under the <%=@extension.license%></p>
+<p><%=@extension.description%></p>
+<p style="clear:right"> <span class="linkbullet"> >> </span> download the extension <%=link_to "here", @extension.url%></p> 
+<p><span class="linkbullet"> >> </span> view the developer site <%=link_to "here", @extension.developerurl%></p>
+
+</div>
+
+<div class="meta">
+
+<p class="credit">
+Posted by <a href="mailto:<%=@extension.user.email%>"><%=@extension.user.login%></a> 
+<%= put_time_since_posted(@extension.created_at.to_s)%>
+</p>
+
+<p class="links">
+<%= render :partial => 'shared/sharethis' %> 
+<%= link_to_remote 'toggle comments', :update => 'placeholder', :url => toggle_comments_path(@extension), :before => "Element.toggle('placeholder', 'blind')", :html => {:class => "comments"} %>
+</p>
+</div>
+
+
+<div style="display:none" id="placeholder">
+  
+</div>
+
+</div>
+<br>

@@ -1,0 +1,20 @@
+xml.instruct!
+
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+ xml.channel do
+
+   xml.title       "wave extensions by zzk"
+   xml.link        url_for :only_path => false, :controller => 'extensions'
+   xml.description "zkk wave extensions"
+
+   @extensions.each do |extension|
+     xml.item do
+       xml.title       extension.name
+       xml.link        url_for :only_path => false, :controller => 'extensions', :action => 'show', :id => extension.id
+       xml.description extension.description
+       xml.guid        url_for :only_path => false, :controller => 'extensions', :action => 'show', :id => extension.id
+     end
+   end
+
+ end
+end

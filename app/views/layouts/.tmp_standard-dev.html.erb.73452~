@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!-- STANDARD TEMPLATE (DEVELOPMENT) -->
+        <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+        <meta http-equiv="Content-Language" content="en-us" />
+        <title>Dev (Dev)</title>
+        <%= stylesheet_link_tag "style" %>
+        <%= stylesheet_link_tag 'acts_as_taggable_stylesheet' %>
+        <%= javascript_include_tag :defaults %>
+    </head>
+    <body>
+        <div id="bg1">
+            <div id="header">
+                <h1><a href="#">dev
+                        <sup>
+                        </sup>
+                    </a></h1>
+                <h2><%= render :partial=>"shared/login" %></h2>
+            </div>
+            <!-- end #header -->
+        </div>
+        <!-- end #bg1 -->
+        <div id="bg2">
+            <div id="header2">
+                <div id="menu">
+                    <ul>
+                        <li>
+                            <a href="<%= extensions_path %>">New</a>
+                        </li>
+                        <li>
+                            <a href="#">Top 10</a>
+                        </li>
+                        <li>
+                            <a href="<%= new_extension_path%>">Submit</a>
+                        </li>
+						<li>
+                            <a href="http://www.wave-extensions.net/blog">blog</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end #menu -->
+                <div id="search">
+                    <form method="get" action="#">
+                        <fieldset>
+                            <input type="text" name="q" value="search keywords" id="q" class="text" /><input type="submit" value="Search" class="button" />
+                        </fieldset>
+                    </form>
+                </div><!-- end #search -->
+            </div><!-- end #header2 -->
+        </div><!-- end #bg2 -->
+        <div id="bg3">
+            <div id="bg4">
+                <div id="bg5">
+                    <div id="page">
+                        <div id="content">
+                            <% if flash[:notice] -%>
+                            <div id="notice">
+                                <%= flash[:notice] %>
+                            </div>
+                            <% end -%>
+                            <% if flash[:error] -%>
+                            <div id="error">
+                                <%= flash[:error] %>
+                            </div>
+                            <% end -%>
+                            <%= yield %>
+                        </div>
+                        <!-- end #content -->
+                        <div id="sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Tags</h2>
+                                    <p>
+                                        <%= tag_cloud %>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end #sidebar -->
+                        <div style="clear: both; height: 40px;">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <!-- end #page -->
+                </div>
+            </div>
+        </div>
+        <!-- end #bg3 -->
+        <div id="footer">
+            <p>
+                (c) 2008 Sitename.com. Design by <a href="http://www.nodethirtythree.com/">nodeThirtyThree</a>
+                + <a href="http://www.freewpthemes.net/">Free CSS Templates</a>
+            </p>
+        </div>
+        <!-- end #footer -->
+    </body>
+</html>

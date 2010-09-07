@@ -1,0 +1,50 @@
+<div class="post">
+    <div class="title">
+        <h2>new extension</h2>
+    </div>
+    <div class="entry">
+        <% form_for :extension, @extension, :url => extensions_path, :html => { :multipart => true } do |f| %>
+        <%# form_for(@extension) do |f| %>
+        <%= f.error_messages %>
+        name: 
+        <br>
+        <%=f.text_field  :name %>
+        <br/>
+        description: 
+        <br/>
+        <%=f.text_area  :description, :size => '60x10' %>
+        <br/>
+        download url:
+        <br/>
+        <%=f.text_field  :url %>
+        <br/>
+        developer url:
+        <br/>
+        <%=f.text_field  :developerurl %>
+        <br/>
+        license:
+        <br/>
+        <%=f.text_field  :license %>
+        <br/>
+        categories:
+        <br/>
+        <% fields_for( @extension.category) do |category_f| %>
+        <%#=f.select  :category, @catnames %>
+        <%=category_f.select  :id, Category.all_without_root.collect {|p| [ p.name, p.id ]}, {:include_blank => 'Please Select'} %>
+        <%end %>
+        <br/>
+        tags:
+        <br/>
+        <%= f.text_field :tag_list %>
+        <br>
+        picture:
+        <br/>
+        <%= f.file_field :preview %>
+        <br/>
+        <%= f.submit "Create" %>
+        <% end %>
+        <%= link_to_remote 'add existing tags', :update => 'placeholder', :url => list_tags_path, :before => "Element.toggle('placeholder','blind')", :html => {:class => "comments"} %>
+        <div style="display:none" id="placeholder">
+        </div>
+    </div>
+</div>

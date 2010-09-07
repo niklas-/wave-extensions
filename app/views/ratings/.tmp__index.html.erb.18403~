@@ -1,0 +1,9 @@
+<div>
+<% sum = 0 %></p>
+<% for rating in @ratings %>
+  <% sum = sum + rating.value.to_i%></p>
+<% end %>
+<%size = @ratings.size==0 ? 1 : @ratings.size%>
+<% result = sum.to_f / size%>
+<img src="/images/<%=result.to_i%>star.png"/ alt="<%=result%>" title="<%=result%>">
+</div>

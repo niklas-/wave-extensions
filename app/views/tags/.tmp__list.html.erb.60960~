@@ -1,0 +1,9 @@
+<br>
+click tag in order to assign that tag to the extension.
+<br>
+<div>
+<span class="fakelinkclear" onclick="clearValue(this)">clear list</span>&nbsp;|&nbsp;
+<% for tag in @tags %>
+<span class="fakelink" onclick="addValue(this)"><%=tag.name%></span>&nbsp;|&nbsp;
+<% end %>
+</div>

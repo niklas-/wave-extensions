@@ -1,0 +1,5 @@
+<% set_meta_title("ratings")%>
+<%= link_to 'top ten', show_by_rating_path(:by => "all")%> |
+<%= link_to 'top ten robots', show_by_rating_path(:by => "robots")%> | 
+<%= link_to 'top ten gadgets', show_by_rating_path(:by => "gadgets") %>
+<%= render :partial => 'top10'%>

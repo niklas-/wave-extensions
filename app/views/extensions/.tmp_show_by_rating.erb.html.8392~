@@ -1,0 +1,21 @@
+<% position = 1 %>
+<% for extension in @extensions %>
+<div class="post">
+<div class="title"><h2>Number <%= position.to_s%> is <%= extension.name %></h2> 
+</div>
+<div class="entry">
+<p><%= extension.description %></p>
+<p><%= link_to extension.url %></p>
+</p>
+</div>
+<div class="meta">
+<p class="credit">Posted by <a href="mailto:<%=extension.user.email%>"><%=extension.user.name%></a> <%=extension.created_at%></p>
+
+<p class="links">
+<%=link_to 'read more', extension_path(extension) %></p>
+</div>
+</div>
+<br>
+<% position = position + 1 %>
+<% end %>
+

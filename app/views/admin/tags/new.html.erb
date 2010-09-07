@@ -1,0 +1,23 @@
+<h1>New tag</h1>
+<% form_for([:admin, @tag]) do |f| %>
+<%= f.error_messages %>
+<p>
+    <b>ID</b>
+    <br/>
+    <%= f.text_field :id %>
+</p>
+<p>
+    <b>name</b>
+    <br/>
+    <%= f.text_field :name %>
+</p>
+<p>
+    <b>Taggings Count</b>
+    <br/>
+    <%= f.text_field :taggings_count %>
+</p>
+<p>
+    <%= f.submit 'Create' %>
+</p>
+<% end %>
+<%= link_to 'Back', admin_tags_path %>

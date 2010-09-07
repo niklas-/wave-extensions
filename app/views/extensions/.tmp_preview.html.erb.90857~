@@ -1,0 +1,32 @@
+<div class="post">
+<div class="title">
+<h2><%=@extension.name%></h2></div>
+<div class="entry">
+<%= put_preview_picture(@extension, :medium, :medium)%>	
+<p><%=@extension.description%></p>
+<%=put_optional_details(@extension)%>
+<div class="tags" style="clear: right;">
+<br>
+Tags:
+<%= put_tags(@extension.taggings) %>
+</div>
+<div class="categories">
+<br>
+Categories:
+<%= put_category_link(@extension.category) %>
+</div>
+</div>
+<div class="meta">
+<p class="credit">
+Posted by <a href="mailto:<%=@extension.user.email%>"><%=@extension.user.login%></a> 
+<%= put_time_since_posted(@extension.created_at.to_s)%>
+</p>
+
+<p class="links">
+<%= link_to "save", extensions_path %>
+<%= link_to "edit", edit_extension_path(@extension) %>
+<%= link_to 'cancle', [@extension], :confirm => 'Are you sure?', :method => :delete %>
+</p>
+</div>
+</div>
+<br>

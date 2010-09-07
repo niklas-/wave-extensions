@@ -1,0 +1,27 @@
+<div class="comment">
+<% if flash[:error]%>
+<p class="errors" >
+<%=flash[:error]%>
+</p>
+<% end%>  
+<% if flash[:notice]%>
+<p class="errors" >
+<%=flash[:notice]%>
+</p>      
+<% end%>
+<% source = request.path %>	
+<%# form_remote_tag :url=>{:action=>"create",:controller=>"comments"}, :html => { :id => 'new-comment-form' }  do %>
+<% form_remote_tag :url=> create_comment_path, :html => { :id => 'new-comment-form_' + @extension.id.to_s}  do %>
+	nickname : 
+	<%= text_field :post,:nickname, :size => 43 %>
+	<br/>
+	<%= text_area :post, :message, :size => '40x4' %>
+	<%= hidden_field_tag :extension_id,@extension.id%>
+	<%= hidden_field_tag :source, source%>
+	<br/>	
+	<br/>
+	<%= submit_tag "post comment" %>
+	<br/>
+<% end -%>
+</div>
+

@@ -1,0 +1,27 @@
+<table border="1">
+  <tr>
+  	<td>ID</td>
+  	<td>Date</td>
+	<td>Subject</td>
+	<td>Message</td>
+  	<td>User ID</td>
+	<td>Extension ID</td>
+	<td>Parent ID</td>
+	<td>Created at</td>
+	<td>Updated at</td>
+  </tr>
+  <tr>
+  	<td><%= h @comment.id %></td>
+  	<td><%= h @comment.date %></td>
+	<td><%= h @comment.subject %></td>
+	<td><%= h @comment.message %></td>
+  	<td><%= h @comment.user_id %></td>
+	<td><%= link_to @comment.extension_id, admin_extension_path(@comment.extension_id) %> </td>
+	<td><%= h @comment.parent_id %></td>
+	<td><%= h @comment.created_at %></td>
+	<td><%= h @comment.updated_at %></td>
+  </tr>
+</table>
+<%= link_to 'Edit', edit_admin_comment_path(@comment) %> |
+<%= link_to 'Destroy', [:admin, @comment], :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', admin_comments_path %>

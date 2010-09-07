@@ -1,0 +1,33 @@
+<h1>New category</h1>
+<% form_for([:admin, @category]) do |f| %>
+<%= f.error_messages %>
+<p>
+    <b>Category ID</b>
+    <br/>
+    <%= f.text_field :id %>
+</p>
+<p>
+    <b>Name</b>
+    <br/>
+    <%= f.text_field :name %>
+</p>
+<p>
+    <b>Parent ID</b>
+    <br/>
+    <%= f.text_field :parent_id %>
+</p>
+<p>
+    <b>Created at</b>
+    <br/>
+    <%= f.text_field :created_at %>
+</p>
+<p>
+    <b>Updated at</b>
+    <br/>
+    <%= f.text_field :updated_at %>
+</p>
+<p>
+    <%= f.submit 'Create' %>
+</p>
+<% end %>
+<%= link_to 'Back', admin_categories_path %>

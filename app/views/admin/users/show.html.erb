@@ -1,0 +1,60 @@
+<table border="1">
+  <tr>
+  	<td>ID</td>
+	<td>Name</td>
+	<td>Email</td>
+	<td>Created at</td>
+	<td>Updated At</td>
+    <td>User Id</td>
+	<td>Login</td> 
+  </tr>
+  <tr>
+  	<td><%= h @user.id %></td>
+  	<td><%= h @user.name %></td>
+	<td><%= h @user.email %></td>
+	<td><%= h @user.created_at %></td>
+	<td><%= h @user.updated_at %></td>
+  	<td><%= h @user.user_id %></td>
+	<td><%= h @user.login %></td> 
+  </tr>
+</table> 
+
+<br>
+<br>
+<br>
+
+<table border="1">
+  <tr>
+	<td>Crypted Password</td>
+  </tr>
+  <tr>
+	<td><%= h @user.crypted_password %></td>
+  </tr>
+</table>
+
+<br>
+<br>
+<br>
+
+<table border="1">
+  <tr>
+	<td>Password Salt</td>
+	<td>Login Count</td>
+	<td>Last Request At</td>
+	<td>Last Login At</td>
+	<td>Last Login IP</td>
+	<td>Current Login IP</td>
+  </tr>
+  <tr>
+    <td><%= h @user.password_salt %></td>
+    <td><%= h @user.login_count %></td>
+    <td><%= h @user.last_request_at %></td>
+    <td><%= h @user.last_login_at %></td>
+    <td><%= h @user.last_login_ip %></td>
+	<td><%= h @user.current_login_ip %></td>    
+  </tr>
+</table>
+
+<%= link_to 'Destroy', [:admin, @user], :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Edit', edit_admin_user_path(@user) %> |
+<%= link_to 'Back', admin_users_path %>

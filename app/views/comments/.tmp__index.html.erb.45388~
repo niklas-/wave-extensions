@@ -1,0 +1,4 @@
+<%= render :partial => 'comments/newroot'%>
+<div id="commentlist">
+<%= render :partial => @comments %>
+</div>

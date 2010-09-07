@@ -1,0 +1,16 @@
+<div id="logininfo">
+	<div id="logininfoinner">
+<% if current_user%>
+	<span  class="white">
+	<b>Logged in as :</b> <%= current_user.login%> | 
+	<b>Roles:</b> <%# current_user.roles.each do |r| %>
+		<%#= r.name%>
+		<%# end %>		
+	| <%= link_to "Logout", {:controller=>"user_session", :action=>"destroy"} %>
+	</span>
+<% else %>		
+	<%= link_to "Login", {:controller=>"user_session", :action=>"new"} %> | <%= link_to "Register", {:controller=>"users", :action=>"new"} %> 
+	
+<% end %>
+	</div>
+</div>
